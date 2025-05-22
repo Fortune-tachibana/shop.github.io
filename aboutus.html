@@ -1,0 +1,147 @@
+<!-- 会社概要（aboutus.html） -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>会社概要 - シリウス</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet" />
+  <style>
+    body, html {
+      margin: 0;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background: #000;
+      color: #fff;
+      height: 100%;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    header, footer {
+      text-align: center;
+      background-color: rgba(0, 60, 255, 0.4);
+      padding: 1rem;
+      backdrop-filter: blur(5px);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      margin: 0.5rem 0;
+    }
+    .menu-toggle {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .content {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .footer-links {
+      margin-top: 1rem;
+    }
+    .footer-links a {
+      color: #aaccff;
+      text-decoration: underline;
+      margin: 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <header>
+    <nav>
+      <div><strong>シリウス</strong></div>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <div id="menu" class="menu">
+        <a href="index.html">ホーム</a>
+        <a href="aboutus.html">会社概要</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="legal.html">特定商取引法</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </nav>
+    <h1>会社概要</h1>
+  </header>
+  <main class="content">
+    <p>会社名 / 運営者名：テスト株式会社</p>
+    <p>事業内容：デザイン雑貨の企画・販売</p>
+    <p>設立年月日：2025年1月</p>
+    <p>企業理念 / ビジョン：お客様に安心感を与え、ブランドへの共感を深める。</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 シリウス</p>
+    <div class="footer-links">
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+    // 星空アニメーション
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    function initStars(count) {
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.5,
+          dx: (Math.random() - 0.5) * 0.5,
+          dy: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'white';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+        star.x += star.dx;
+        star.y += star.dy;
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+      });
+      requestAnimationFrame(drawStars);
+    }
+    resizeCanvas();
+    initStars(100);
+    drawStars();
+  </script>
+</body>
+</html>

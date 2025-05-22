@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>特定商取引法に基づく表記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Zen Kaku Gothic New', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    canvas#starCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .hamburger {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(0, 0, 50, 0.9);
+      padding: 1rem;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      z-index: 9;
+    }
+    .menu a {
+      color: #99ccff;
+      text-decoration: none;
+    }
+    header, footer {
+      text-align: center;
+      background-color: rgba(0, 60, 255, 0.4);
+      padding: 1rem;
+      backdrop-filter: blur(5px);
+    }
+    header h1 {
+      font-size: 2rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      backdrop-filter: blur(3px);
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    section h2 {
+      color: #99ccff;
+    }
+    footer .contact a {
+      color: #99ccff;
+      text-decoration: underline;
+      margin: 0 1rem;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="starCanvas"></canvas>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  <div class="menu" id="menu">
+    <a href="index.html">トップ</a>
+    <a href="products.html">商品一覧</a>
+    <a href="about.html">活動紹介</a>
+  </div>
+  <header>
+    <h1>特定商取引法に基づく表記</h1>
+  </header>
+  <main>
+    <section>
+      <h2>販売業者</h2>
+      <p>テスト株式会社 / テスト太郎</p>
+    </section>
+    <section>
+      <h2>所在地</h2>
+      <p>東京都千代田区1-1-1</p>
+    </section>
+    <section>
+      <h2>連絡先</h2>
+      <p>電話番号: 03-1234-5678<br>メール: info@example.com</p>
+    </section>
+    <section>
+      <h2>商品代金以外の必要料金</h2>
+      <p>送料、決済手数料</p>
+    </section>
+    <section>
+      <h2>支払い方法</h2>
+      <p>クレジットカード、銀行振込</p>
+    </section>
+    <section>
+      <h2>引き渡し時期</h2>
+      <p>通常ご注文から5営業日以内に発送</p>
+    </section>
+    <section>
+      <h2>返品・交換について</h2>
+      <p>商品到着から7日以内、未使用の場合に限り対応</p>
+    </section>
+  </main>
+  <footer>
+    <div class="contact">
+      <a href="#">お問い合わせ（日本語）</a>
+      <a href="#">Contact（English）</a>
+      <a href="#">聯繫我們（中文）</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
+    const canvas = document.getElementById('starCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function initStars() {
+      for (let i = 0; i < 200; i++) {
+        stars.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          size: Math.random() * 2 + 0.5,
+          speed: Math.random() * 0.5 + 0.2,
+          alpha: Math.random(),
+          flickerSpeed: Math.random() * 0.02 + 0.01
+        });
+      }
+    }
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let star of stars) {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
+        ctx.fill();
+      }
+    }
+    function moveStars() {
+      for (let star of stars) {
+        star.y += star.speed;
+        if (star.y > window.innerHeight) {
+          star.y = 0;
+          star.x = Math.random() * window.innerWidth;
+        }
+        star.alpha += star.flickerSpeed;
+        if (star.alpha >= 1 || star.alpha <= 0.3) star.flickerSpeed *= -1;
+      }
+    }
+    function animate() {
+      drawStars();
+      moveStars();
+      requestAnimationFrame(animate);
+    }
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    initStars();
+    animate();
+  </script>
+</body>
+</html>
