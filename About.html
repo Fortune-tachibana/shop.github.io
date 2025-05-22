@@ -4,109 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>活動紹介 - シリウス</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Zen Kaku Gothic New', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    canvas#starCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    .hamburger {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 5px 0;
-    }
-    .menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: rgba(0, 60, 100, 0.9);
-      padding: 1rem;
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 9;
-    }
-    .menu a {
-      color: #99ccff;
-      text-decoration: none;
-    }
-    header, footer {
-      text-align: center;
-      background-color: rgba(0, 60, 255, 0.4);
-      padding: 1rem;
-      backdrop-filter: blur(5px);
-    }
-    header h1 {
-      font-family: 'Cinzel Decorative', cursive;
-      font-size: 2.5rem;
-      color: #e0f7ff;
-    }
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      backdrop-filter: blur(3px);
-    }
-    main h2 {
-      border-bottom: 2px solid #99ccff;
-      padding-bottom: 0.5rem;
-    }
-    footer .contact {
-      margin-top: 2rem;
-    }
-    footer .contact a {
-      display: inline-block;
-      margin: 0 1rem;
-      color: #99ccff;
-      text-decoration: underline;
-    }
-        .page-links {
-      margin-top: 3rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .page-links a {
-      padding: 0.75rem 1.5rem;
-      background-color: rgba(0, 90, 180, 0.6);
-      color: #fff;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .page-links a:hover {
-      background-color: rgba(0, 90, 180, 0.9);
-    }
-    footer .contact {
-      margin-top: 2rem;
-    }
-    footer .contact a {
-      display: inline-block;
-      margin: 0 1rem;
-      color: #99ccff;
-      text-decoration: underline;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <canvas id="starCanvas"></canvas>
@@ -122,31 +21,26 @@
   </div>
 
   <header>
-    <h1>活動紹介</h1>
+    <h1>シリウス</h1>
   </header>
+
   <main>
-    <h2>私たちについて</h2>
+    <h2>活動紹介</h2>
     <p>
-      「シリウス」は、星空や宇宙をテーマにしたデザインプロジェクトです。<br />
-      アート、雑貨、ファッションなど、さまざまなジャンルで宇宙の魅力を表現し、多くの人に感動を届けることを目指しています。
+      シリウスは「宇宙をもっと身近に」をテーマに、デザインとアートを通して
+      宇宙の魅力を広める活動を行っています。
     </p>
 
-    <h2>これまでの取り組み</h2>
-    <ul>
-      <li>オンラインショップでのオリジナル商品展開</li>
-      <li>宇宙イベントへの出展</li>
-      <li>夜空観測会とのコラボ企画</li>
-    </ul>
+    <section class="activities">
+      <h3>デザイン制作</h3>
+      <p>星空や銀河など、宇宙をモチーフにしたデザインを制作し、グッズに展開しています。</p>
 
-    <h2>今後のビジョン</h2>
-    <p>
-      宇宙をもっと身近に、もっと美しく感じられるよう、<br />
-      世界中の人々と繋がりながら活動を広げていきます。
-    </p>
-        <div class="page-links">
-      <a href="index.html">トップ</a>
-      <a href="products.html">商品一覧</a>
-    </div>
+      <h3>イベント参加</h3>
+      <p>同人イベントやマーケットでの出展を通して、直接お客様と交流しています。</p>
+
+      <h3>オンライン発信</h3>
+      <p>SNSやWebサイトで最新情報や制作過程を発信し、宇宙の面白さを伝えています。</p>
+    </section>
   </main>
 
   <footer>
@@ -158,102 +52,6 @@
     </div>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    const starCanvas = document.getElementById('starCanvas');
-    const ctxStars = starCanvas.getContext('2d');
-    let stars = [];
-    let meteors = [];
-
-    function initStars() {
-      stars = [];
-      for (let i = 0; i < 200; i++) {
-        stars.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          size: Math.random() * 2 + 0.5,
-          speed: Math.random() * 0.5 + 0.2,
-          alpha: Math.random(),
-          flickerSpeed: Math.random() * 0.02 + 0.01
-        });
-      }
-    }
-
-    function drawStars() {
-      ctxStars.clearRect(0, 0, starCanvas.width, starCanvas.height);
-      for (let star of stars) {
-        ctxStars.beginPath();
-        ctxStars.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctxStars.fillStyle = `rgba(255,255,255,${star.alpha})`;
-        ctxStars.fill();
-      }
-      for (let meteor of meteors) {
-        ctxStars.beginPath();
-        ctxStars.moveTo(meteor.x, meteor.y);
-        ctxStars.lineTo(meteor.x - meteor.speedX * 5, meteor.y - meteor.speedY * 5);
-        ctxStars.strokeStyle = `rgba(150, 200, 255, ${meteor.opacity})`;
-        ctxStars.lineWidth = meteor.size;
-        ctxStars.stroke();
-      }
-    }
-
-    function moveStars() {
-      for (let star of stars) {
-        star.y += star.speed;
-        if (star.y > window.innerHeight) {
-          star.y = 0;
-          star.x = Math.random() * window.innerWidth;
-        }
-        star.alpha += star.flickerSpeed;
-        if (star.alpha >= 1 || star.alpha <= 0.3) {
-          star.flickerSpeed *= -1;
-        }
-      }
-      for (let i = meteors.length - 1; i >= 0; i--) {
-        const meteor = meteors[i];
-        meteor.x += meteor.speedX;
-        meteor.y += meteor.speedY;
-        meteor.opacity -= 0.02;
-        if (meteor.opacity <= 0) {
-          meteors.splice(i, 1);
-        }
-      }
-    }
-
-    function createMeteor() {
-      const startX = Math.random() * window.innerWidth;
-      meteors.push({
-        x: startX,
-        y: 0,
-        size: Math.random() * 1 + 0.5,
-        speedX: Math.random() * 4 + 15,
-        speedY: Math.random() * 4 + 15,
-        opacity: 1
-      });
-      setTimeout(createMeteor, Math.random() * 5000 + 4000);
-    }
-
-    function animateStars() {
-      drawStars();
-      moveStars();
-      requestAnimationFrame(animateStars);
-    }
-
-    function resizeCanvas() {
-      starCanvas.width = window.innerWidth;
-      starCanvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-
-    resizeCanvas();
-    initStars();
-    animateStars();
-    createMeteor();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

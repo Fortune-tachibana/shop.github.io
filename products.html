@@ -4,128 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>商品一覧 - シリウス</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Zen Kaku Gothic New', sans-serif;
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
-    canvas#starCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    .hamburger {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      cursor: pointer;
-      z-index: 10;
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 5px 0;
-    }
-    .menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: rgba(0, 0, 50, 0.9);
-      padding: 1rem;
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      z-index: 9;
-    }
-    .menu a {
-      color: #99ccff;
-      text-decoration: none;
-    }
-    header, footer {
-      text-align: center;
-      background-color: rgba(0, 60, 255, 0.4);
-      padding: 1rem;
-      backdrop-filter: blur(5px);
-    }
-    header h1 {
-      font-family: 'Cinzel Decorative', cursive;
-      font-size: 2.5rem;
-      color: #e0f7ff;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      backdrop-filter: blur(3px);
-    }
-    .product {
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 1rem;
-      padding: 1rem;
-      transition: transform 0.3s;
-    }
-    .product:hover {
-      transform: scale(1.05);
-    }
-    .product img {
-      max-width: 100%;
-      border-radius: 1rem;
-    }
-    .product a {
-      display: block;
-      margin-top: 1rem;
-      color: #99ccff;
-      text-decoration: underline;
-    }
-    footer .contact {
-      margin-top: 2rem;
-    }
-    footer .contact a {
-      display: inline-block;
-      margin: 0 1rem;
-      color: #99ccff;
-      text-decoration: underline;
-    }
-        .page-links {
-      margin-top: 3rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .page-links a {
-      padding: 0.75rem 1.5rem;
-      background-color: rgba(0, 90, 180, 0.6);
-      color: #fff;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .page-links a:hover {
-      background-color: rgba(0, 90, 180, 0.9);
-    }
-    footer .contact {
-      margin-top: 2rem;
-    }
-    footer .contact a {
-      display: inline-block;
-      margin: 0 1rem;
-      color: #99ccff;
-      text-decoration: underline;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <canvas id="starCanvas"></canvas>
@@ -141,26 +21,32 @@
   </div>
 
   <header>
-    <h1>商品一覧</h1>
+    <h1>シリウス</h1>
   </header>
-  <main class="products">
-    <div class="product">
-      <img src="images/note.jpg" alt="ノート">
-      <a href="https://suzuri.jp/oragecraft/17827633/note/m/white" target="_blank">ノートを購入</a>
-    </div>
-    <div class="product">
-      <img src="images/glass.jpg" alt="グラス">
-      <a href="https://suzuri.jp/oragecraft/17827633/long-sized-water-glass/l/clear" target="_blank">グラスを購入</a>
-    </div>
-    <div class="product">
-      <img src="images/tshirt.jpg" alt="Tシャツ">
-      <a href="https://suzuri.jp/oragecraft/17827633/t-shirt/s/white" target="_blank">Tシャツを購入</a>
+
+  <main>
+    <h2>商品一覧</h2>
+    <p>宇宙をモチーフにした個性豊かなアイテムをご紹介します。</p>
+
+    <section class="product-list">
+      <article class="product">
+        <h3>星空ノート</h3>
+        <img src="images/note.jpg" alt="ノート">
+        <p>美しい星空を表紙にあしらったノート。アイディアや夢を記録しましょう。</p>
+      </article>
+      <article class="product">
+        <h3>惑星グラス</h3>
+        <img src="images/glass.jpg" alt="グラス">
+        <p>飲み物を注ぐと宇宙が広がる、惑星デザインのグラスです。</p>
+      </article>
+      <article class="product">
+        <h3>宇宙Tシャツ</h3>
+        <img src="images/tshirt.jpg" alt="Tシャツ">
+        <p>銀河をイメージしたグラフィックTシャツ。コットン100％で着心地も抜群。</p>
+      </article>
+    </section>
   </main>
-      </div>
-        <div class="page-links">
-      <a href="index.html">トップ</a>
-      <a href="about.html">活動紹介</a>
-    </div>
+
   <footer>
     <p>&copy; 2025 シリウス</p>
     <div class="contact">
@@ -170,102 +56,6 @@
     </div>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    const starCanvas = document.getElementById('starCanvas');
-    const ctxStars = starCanvas.getContext('2d');
-    let stars = [];
-    let meteors = [];
-
-    function initStars() {
-      stars = [];
-      for (let i = 0; i < 200; i++) {
-        stars.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          size: Math.random() * 2 + 0.5,
-          speed: Math.random() * 0.5 + 0.2,
-          alpha: Math.random(),
-          flickerSpeed: Math.random() * 0.02 + 0.01
-        });
-      }
-    }
-
-    function drawStars() {
-      ctxStars.clearRect(0, 0, starCanvas.width, starCanvas.height);
-      for (let star of stars) {
-        ctxStars.beginPath();
-        ctxStars.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctxStars.fillStyle = `rgba(255,255,255,${star.alpha})`;
-        ctxStars.fill();
-      }
-      for (let meteor of meteors) {
-        ctxStars.beginPath();
-        ctxStars.moveTo(meteor.x, meteor.y);
-        ctxStars.lineTo(meteor.x - meteor.speedX * 5, meteor.y - meteor.speedY * 5);
-        ctxStars.strokeStyle = `rgba(150, 200, 255, ${meteor.opacity})`;
-        ctxStars.lineWidth = meteor.size;
-        ctxStars.stroke();
-      }
-    }
-
-    function moveStars() {
-      for (let star of stars) {
-        star.y += star.speed;
-        if (star.y > window.innerHeight) {
-          star.y = 0;
-          star.x = Math.random() * window.innerWidth;
-        }
-        star.alpha += star.flickerSpeed;
-        if (star.alpha >= 1 || star.alpha <= 0.3) {
-          star.flickerSpeed *= -1;
-        }
-      }
-      for (let i = meteors.length - 1; i >= 0; i--) {
-        const meteor = meteors[i];
-        meteor.x += meteor.speedX;
-        meteor.y += meteor.speedY;
-        meteor.opacity -= 0.02;
-        if (meteor.opacity <= 0) {
-          meteors.splice(i, 1);
-        }
-      }
-    }
-
-    function createMeteor() {
-      const startX = Math.random() * window.innerWidth;
-      meteors.push({
-        x: startX,
-        y: 0,
-        size: Math.random() * 1 + 0.5,
-        speedX: Math.random() * 4 + 15,
-        speedY: Math.random() * 4 + 15,
-        opacity: 1
-      });
-      setTimeout(createMeteor, Math.random() * 5000 + 4000);
-    }
-
-    function animateStars() {
-      drawStars();
-      moveStars();
-      requestAnimationFrame(animateStars);
-    }
-
-    function resizeCanvas() {
-      starCanvas.width = window.innerWidth;
-      starCanvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-
-    resizeCanvas();
-    initStars();
-    animateStars();
-    createMeteor();
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

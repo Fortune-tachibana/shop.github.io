@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+canvas#starCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hamburger {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 30;
+  width: 32px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 1.5rem;
+  background-color: rgba(0, 60, 100, 0.95);
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 20;
+  min-width: 200px;
+  padding-top: 5rem; /* ハンバーガーと重ならないように */
+}
+
+.menu a {
+  color: #99ccff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.menu.active {
+  display: flex;
+}
+
+header,
+footer {
+  text-align: center;
+  background-color: rgba(0, 60, 255, 0.4);
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+header h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 2.5rem;
+  color: #e0f7ff;
+}
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  backdrop-filter: blur(3px);
+}
+
+main h2 {
+  border-bottom: 2px solid #99ccff;
+  padding-bottom: 0.5rem;
+}
+
+.page-links {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.page-links a {
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(0, 90, 180, 0.6);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.page-links a:hover {
+  background-color: rgba(0, 90, 180, 0.9);
+}
+
+footer .contact {
+  margin-top: 2rem;
+}
+
+footer .contact a {
+  display: inline-block;
+  margin: 0 1rem;
+  color: #99ccff;
+  text-decoration: underline;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .page-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
