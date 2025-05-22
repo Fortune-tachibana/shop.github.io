@@ -148,7 +148,7 @@ footer .contact a {
 .product {
   flex: 1 1 calc(33.333% - 1rem); /* 3列表示 */
   box-sizing: border-box;
-  background: #030308;
+  background: #fff;
   padding: 1rem;
   border-radius: 8px;
   text-align: center;

@@ -9,16 +9,17 @@
 </head>
 <body>
   <canvas id="starCanvas"></canvas>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="menu" id="menu">
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="menu" id="menu">
     <a href="index.html">トップ</a>
     <a href="products.html">商品一覧</a>
     <a href="about.html">活動紹介</a>
-  </div>
+  </nav>
 
   <header>
     <h1>シリウス</h1>
@@ -31,17 +32,23 @@
     <section class="product-list">
       <article class="product">
         <h3>星空ノート</h3>
-        <img src="images/note.jpg" alt="ノート">
+    <a href="https://suzuri.jp/oragecraft/17827633/note/m/white" target="_blank" rel="noopener">
+      <img src="images/note.jpg" alt="ノート">
+    </a>
         <p>美しい星空を表紙にあしらったノート。アイディアや夢を記録しましょう。</p>
       </article>
       <article class="product">
         <h3>惑星グラス</h3>
-        <img src="images/glass.jpg" alt="グラス">
+    <a href="https://suzuri.jp/oragecraft/17827633/long-sized-water-glass/l/clear" target="_blank" rel="noopener">
+      <img src="images/glass.jpg" alt="グラス">
+    </a>
         <p>飲み物を注ぐと宇宙が広がる、惑星デザインのグラスです。</p>
       </article>
       <article class="product">
         <h3>宇宙Tシャツ</h3>
-        <img src="images/tshirt.jpg" alt="Tシャツ">
+    <a href="https://suzuri.jp/oragecraft/17827633/t-shirt/s/white" target="_blank" rel="noopener">
+      <img src="images/tshirt.jpg" alt="Tシャツ">
+    </a>
         <p>銀河をイメージしたグラフィックTシャツ。コットン100％で着心地も抜群。</p>
       </article>
     </section>

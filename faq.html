@@ -4,167 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ - シリウス</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet" />
-  <style>
-    body, html {
-      margin: 0;
-      font-family: 'Zen Kaku Gothic New', sans-serif;
-      background: #000;
-      color: #fff;
-      height: 100%;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    header, footer {
-      text-align: center;
-      background-color: rgba(0, 60, 255, 0.4);
-      padding: 1rem;
-      backdrop-filter: blur(5px);
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1rem;
-    }
-    .menu {
-      display: none;
-      flex-direction: column;
-      background-color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 60px;
-      right: 10px;
-      padding: 1rem;
-      border-radius: 0.5rem;
-    }
-    .menu a {
-      color: white;
-      text-decoration: none;
-      margin: 0.5rem 0;
-    }
-    .menu-toggle {
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .content {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .faq-item {
-      margin-bottom: 1.5rem;
-    }
-    .faq-item h3 {
-      margin: 0.5rem 0;
-      color: #aaccff;
-    }
-    .footer-links {
-      margin-top: 1rem;
-    }
-    .footer-links a {
-      color: #aaccff;
-      text-decoration: underline;
-      margin: 0 0.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <canvas id="bg"></canvas>
+  <canvas id="starCanvas"></canvas>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav class="menu" id="menu">
+    <a href="index.html">トップ</a>
+    <a href="products.html">商品一覧</a>
+    <a href="about.html">活動紹介</a>
+  </nav>
+
   <header>
-    <nav>
-      <div><strong>シリウス</strong></div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <div id="menu" class="menu">
-        <a href="index.html">ホーム</a>
-        <a href="aboutus.html">会社概要</a>
-        <a href="faq.html">FAQ</a>
-        <a href="privacy.html">プライバシーポリシー</a>
-        <a href="legal.html">特定商取引法</a>
-        <a href="contact.html">お問い合わせ</a>
-      </div>
-    </nav>
-    <h1>FAQ（よくある質問）</h1>
+    <h1>FAQ</h1>
   </header>
-  <main class="content">
-    <div class="faq-item">
-      <h3>Q. 支払い方法は？</h3>
-      <p>A. クレジットカード・銀行振込・コンビニ決済をご利用いただけます。</p>
-    </div>
-    <div class="faq-item">
-      <h3>Q. 配送にはどれくらいかかりますか？</h3>
-      <p>A. 通常、発送から3〜5営業日ほどでお届けいたします。</p>
-    </div>
-    <div class="faq-item">
-      <h3>Q. 商品の返品は可能ですか？</h3>
-      <p>A. 商品到着後7日以内で未使用の場合に限り返品を受け付けております。</p>
-    </div>
-    <div class="faq-item">
-      <h3>Q. 会員登録しなくても購入できますか？</h3>
-      <p>A. はい、ゲスト購入も可能です。</p>
-    </div>
+
+  <main>
+    <section class="faq">
+      <h2>よくあるご質問</h2>
+      <h3>Q. 商品はどこで購入できますか？</h3>
+      <p>A. SUZURIのオンラインショップでご購入いただけます。</p>
+
+      <h3>Q. イベント出展はどこで確認できますか？</h3>
+      <p>A. 当サイトやSNSで随時お知らせしています。</p>
+
+      <h3>Q. ギフト用の包装はできますか？</h3>
+      <p>A. 現在ギフトラッピングは対応しておりません。</p>
+    </section>
   </main>
+
   <footer>
     <p>&copy; 2025 シリウス</p>
-    <div class="footer-links">
-      <a href="contact.html">お問い合わせ</a>
+    <div class="contact">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeaFQ3x_vnI6os9WlIc4g2kFEj_LpCdZw_Kuh1UBqUAp4X8Ew/viewform?usp=dialog" target="_blank">お問い合わせ（日本語）</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScgiUO5y_0LG7MERZUA0afHsacAKu45lCltPOWCKoPpz6LJ8g/viewform?usp=dialog" target="_blank">Contact（English）</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEso4Woko9L49lGNuN-T2UI6636eEyitnP-KhA2xziEl9klA/viewform?usp=dialog" target="_blank">聯繫我們（中文）</a>
     </div>
   </footer>
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-    }
 
-    const canvas = document.getElementById('bg');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-
-    function initStars(count) {
-      stars = [];
-      for (let i = 0; i < count; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.5 + 0.5,
-          dx: (Math.random() - 0.5) * 0.5,
-          dy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'white';
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fill();
-        star.x += star.dx;
-        star.y += star.dy;
-        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-      });
-      requestAnimationFrame(drawStars);
-    }
-
-    resizeCanvas();
-    initStars(100);
-    drawStars();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
